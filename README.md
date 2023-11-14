@@ -33,6 +33,22 @@ For a more customized URL to access Jenkins, you can add the following line to y
 
 After updating the hosts file, you can access Jenkins at http://jenkins:8080.
 
+
+### SSH keys
+The simple setup allows to SSH into the remote host and run simple commands.  
+```bash
+ssh remot_user@remote_host 'bash -c "your_command with arguments"'
+```
+To do that, you should configure the SSH setup:
+1. Generate SSH key pair on your local machine:
+```
+ssh-keygen -f "remote-key"
+```
+This process will create two files: a remote_key (a private key) and a remote_key.pub (a public key)
+2. Copy the public key to the remote host (already done in Dockerfile).
+
+3. Add the private key to the Jenkins credentials (already done in Jenkinsfile).
+
 ### Notes
 The Jenkins instance is configured to run on port 8080.
 This setup is intended for local experimentation and testing purposes.
