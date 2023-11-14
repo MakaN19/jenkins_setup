@@ -42,14 +42,21 @@ ssh remot_user@remote_host 'bash -c "your_command with arguments"'
 To do that, you should configure the SSH setup:
 1. Generate SSH key pair on your local machine:
 ```
+cd remote_host
 ssh-keygen -f "remote-key"
 ```
 This process will create two files: a remote_key (a private key) and a remote_key.pub (a public key)
-2. Copy the public key to the remote host (already done in Dockerfile).
+2. Copy the public key to the remote host .ssh/authorized_keys  (already done in Dockerfile).
 
-3. Add the private key to the Jenkins credentials (already done in Jenkinsfile).
+3. Create host key (already done in Dockerfile).
+
+4. Your host needs to be added in Jenkins system configuration.
 
 ### Notes
 The Jenkins instance is configured to run on port 8080.
 This setup is intended for local experimentation and testing purposes.
 Feel free to explore and modify the configuration to suit your specific needs.
+
+### Plugins
+- Pipelines
+- SSH

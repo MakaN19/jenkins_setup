@@ -7,6 +7,7 @@ services:
       - "8080:8080"
     volumes:
       - "$PWD/jenkins:/var/jenkins_home"
+      - "$PWD/remote_host/remote-key:/var/jenkins_home/remote-key"
     networks:
       - jenkins
   remote_host:
