@@ -1,0 +1,21 @@
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - "$PWD/jenkins:/var/jenkins_home"
+    networks:
+      - jenkins
+  remote_host:
+    container_name: remote-host
+    image: remote-host
+    build:
+        context: remote_host
+    networks:
+      - jenkins
+
+networks:
+  jenkins:
