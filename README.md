@@ -46,6 +46,7 @@ cd remote_host
 ssh-keygen -f "remote-key"
 ```
 This process will create two files: a remote_key (a private key) and a remote_key.pub (a public key)
+
 2. Copy the public key to the remote host .ssh/authorized_keys  (already done in Dockerfile).
 
 3. Create host key (already done in Dockerfile).
